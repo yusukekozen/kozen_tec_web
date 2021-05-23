@@ -3,6 +3,7 @@
     <div>
       <Logo />
       <h1 class="title">kozen_tec_web</h1>
+      <h2 class="title">kozen_it_technology_solutions</h2>
       <div class="links">
         <a
           href="https://nuxtjs.org/"
