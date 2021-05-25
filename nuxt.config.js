@@ -12,14 +12,15 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/kozen_tec_web/favicon.ico' },
-      { rel: 'stylesheet', href: "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" }
+      {
+        rel: 'stylesheet',
+        href: 'https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css',
+      },
     ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    { src: '~/assets/sass/app.scss', lang: 'scss' },
-  ],
+  css: [{ src: '~/assets/sass/app.scss', lang: 'scss' }],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
@@ -62,9 +63,21 @@ export default {
   content: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    extend(config, ctx) {
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/,
+        })
+      }
+    },
+  },
   router: {
-    base: '/kozen_tec_web/'
+    base: '/kozen_tec_web/',
   },
   styleResources: {
     scss: ['~/assets/scss/_variable.scss'],

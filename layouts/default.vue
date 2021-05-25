@@ -12,12 +12,11 @@
 </template>
 
 <script>
-export default {
-}
+export default {}
 </script>
 
 <style>
-  .container{
-    max-width: 640px;
-  }
+.container {
+  max-width: 640px;
+}
 </style>

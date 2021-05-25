@@ -9,8 +9,9 @@
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
-    "lint": "yarn lint:js && yarn lint:style",
-    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
+    "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
   },
   "lint-staged": {
     "*.{js,vue}": "eslint",
@@ -22,7 +23,10 @@
       "pre-commit": "lint-staged"
     },
     "lint-staged": {
-      "*.{js,vue}": ["prettier --write", "git add"]
+      "*.{js,vue}": [
+        "prettier --write",
+        "git add"
+      ]
     }
   },
   "dependencies": {
@@ -54,7 +58,7 @@
     "husky": "^6.0.0",
     "lint-staged": "^11.0.0",
     "node-sass": "^6.0.0",
-    "prettier": "^2.2.1",
+    "prettier": "2.3.0",
     "push-dir": "^0.4.1",
     "sass": "^1.34.0",
     "sass-loader": "^10.2.0",
