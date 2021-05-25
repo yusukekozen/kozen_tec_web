@@ -10,12 +10,16 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: '' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/kozen_tec_web/favicon.ico' }],
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/kozen_tec_web/favicon.ico' },
+      { rel: 'stylesheet', href: "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" }
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
-
+  css: [
+    { src: '~/assets/sass/app.scss', lang: 'scss' },
+  ],
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [],
 
@@ -40,6 +44,8 @@ export default {
     '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
+    // scss
+    '@nuxtjs/style-resources',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -60,5 +66,7 @@ export default {
   router: {
     base: '/kozen_tec_web/'
   },
-
+  styleResources: {
+    scss: ['~/assets/scss/_variable.scss'],
+  },
 }
